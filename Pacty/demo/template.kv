@@ -1,0 +1,16 @@
+#:kivy 2.0.0
+
+<MiLayout>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 10
+
+    Label:
+        id: mi_label
+        text: "Hola Mundo"
+        font_size: 32
+
+    Button:
+        text: "Cambiar texto"
+        font_size: 24
+        on_press: root.cambiar_texto()

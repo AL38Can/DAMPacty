@@ -1,0 +1,55 @@
+#:kivy 2.1.0
+
+<LoginScreen>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "40dp"
+        spacing: "20dp"
+        md_bg_color: 234/255, 221/255, 208/255, 1
+
+        MDLabel:
+            text: "Iniciar Sesión"
+            halign: "center"
+            font_style: "H4"
+            color: (0.659, 0.620, 0.576, 1)
+            padding: (30, 40, 30, 40)
+
+        Image:
+            source: r'assets\icons\LogoAppFinal.png'
+            size_hint_y: None
+            height: "150dp"
+            pos_hint: {"center_x": 0.5}
+
+        MDTextField:
+            id: email
+            hint_text: "Correo electrónico"
+            icon_right: "email-outline"
+            size_hint_x: None
+            width: "300dp"
+            pos_hint: {"center_x": 0.5}
+
+        MDTextField:
+            id: password
+            hint_text: "Contraseña"
+            password: True
+            icon_right: "lock-outline"
+            size_hint_x: None
+            width: "300dp"
+            pos_hint: {"center_x": 0.5}
+
+        MDLabel:
+            id: message
+            text: ""
+            halign: "center"
+            theme_text_color: "Error"
+
+        MDRaisedButton:
+            text: "Entrar"
+            md_bg_color: 20/255, 203/255, 186/255, 1
+            pos_hint: {"center_x": 0.5}
+            on_release: root.check_login(self)
+
+        MDLabel:
+            text: "¿Olvidaste tu contraseña?"
+            halign: "center"
+            theme_text_color: "Secondary"

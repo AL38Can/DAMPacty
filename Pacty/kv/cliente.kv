@@ -1,0 +1,385 @@
+#:kivy 2.1.0
+#:import dp kivy.metrics.dp
+#:import MDCard kivymd.uix.card.MDCard
+#:import MDIcon kivymd.uix.label.MDIcon
+
+<ClienteHomeScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDBottomNavigation:
+            md_bg_color: 1, 1, 0.9, 1
+            text_color_active: 20/255, 203/255, 186/255, 1 
+
+            MDBottomNavigationItem:
+                name: 'actividades'
+                text: 'Actividades'
+                icon: 'calendar-month-outline'
+                md_bg_color: 234/255, 221/255, 208/255, 1
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(6)
+                    padding: dp(30)
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: dp(40)
+                        spacing: dp(10)
+
+                        MDIconButton:
+                            icon: "filter-variant"
+                            user_font_size: "24dp"
+                            pos_hint: {"center_y": 0.5}
+                            on_release: app.cliente_home_screen.abrir_panel_filtros()
+
+                        MDLabel:
+                            text: "Filtrar actividades"
+                            font_style: "Subtitle1"
+                            theme_text_color: "Secondary"
+                            valign: "middle"
+
+                        MDIconButton:
+                            icon: "assets/icons/icon-exit.png"
+                            user_font_size: "24dp"
+                            pos_hint: {"center_y": 0.5}
+                            on_release: root.salir()
+
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: dp(40)
+                        spacing: dp(10)
+
+                        MDLabel:
+                            text: "Actividades"
+                            font_style: "H4"
+                            halign: "center"
+                            color: (0.659, 0.620, 0.576, 1)
+                            size_hint_y: None
+                            height: self.texture_size[1] + dp(10)
+
+                        
+                    MDSeparator:
+                        height: dp(1)
+                        size_hint_x: None
+                        width: dp(200)
+                        pos_hint: {"center_x": 0.5}
+                        color: app.theme_cls.primary_color
+                    
+                    Widget:
+                        size_hint_y: None
+                        height: dp(10)  # Espacio extra entre la línea y el contenido
+
+                    ScrollView:
+                        MDList:
+                            id: actividad_list
+
+            MDBottomNavigationItem:
+                name: 'inscripciones'
+                text: 'Mis Reservas'
+                icon: 'bookmark-check-outline'
+                md_bg_color: 234/255, 221/255, 208/255, 1
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: dp(70)
+                        md_bg_color: 20/255, 203/255, 186/255, 1 
+                        elevation: 2
+                        spacing: dp(8)
+                        padding: [dp(10), dp(10), dp(10), 0]
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: 0
+                            md_bg_color: 20/255, 203/255, 186/255, 1 
+                            padding: [dp(20), dp(20), dp(20), dp(20)]
+
+
+                            MDLabel:
+                                text: "Mis Actividades"
+                                font_style: "H5"
+                                halign: "center"
+                                valign: "middle"
+                                color: 1, 1, 1, 0.8
+                                size_hint_y: None
+                                pos_hint: {"center_x": 0.6}
+                                height: self.texture_size[1] + dp(6)
+
+                        Widget:
+                            size_hint_x: 0.01
+
+                        MDIconButton:
+                            icon: "assets/icons/icon-exit.png"
+                            user_font_size: "24dp"
+                            pos_hint: {"center_y": 0.6}
+                            on_release: root.salir()
+
+
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        padding: dp(30)
+
+                        ScrollView:
+                            MDList:
+                                id: inscripcion_list
+
+
+
+            MDBottomNavigationItem:
+                name: 'perfil'
+                text: 'Mi Perfil'
+                icon: 'account-circle-outline'
+                md_bg_color: 234/255, 221/255, 208/255, 1
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+
+                    MDBoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: dp(70)
+                        md_bg_color: 20/255, 203/255, 186/255, 1 
+                        elevation: 2
+                        spacing: dp(8)
+                        padding: [dp(10), dp(10), dp(10), 0]
+
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            spacing: 0
+                            md_bg_color: 20/255, 203/255, 186/255, 1 
+                            padding: [dp(20), dp(20), dp(20), dp(20)]
+
+
+                            MDLabel:
+                                text: "Mi Perfil"
+                                font_style: "H5"
+                                halign: "center"
+                                valign: "middle"
+                                color: 1, 1, 1, 0.8
+                                size_hint_y: None
+                                pos_hint: {"center_x": 0.6}
+                                height: self.texture_size[1] + dp(6)
+
+                        Widget:
+                            size_hint_x: 0.01
+
+                        MDIconButton:
+                            icon: "assets/icons/icon-exit.png"
+                            user_font_size: "24dp"
+                            pos_hint: {"center_y": 0.6}
+                            on_release: root.salir()
+
+
+
+                    Widget:
+                        size_hint_y: None
+                        height: dp(10)
+
+                    ScrollView:
+                        MDBoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            spacing: dp(16)
+                            padding: dp(20)
+                            md_bg_color: 234/255, 221/255, 208/255, 1
+
+                            MDCard:
+                                orientation: 'vertical'
+                                padding: dp(24)
+                                spacing: dp(20)
+                                size_hint: 1, None
+                                adaptive_height: True
+                                md_bg_color: 1, 1, 1, 1
+                                radius: [15, 15, 15, 15]
+                                elevation: 2
+
+                                MDBoxLayout:
+                                    id: box
+                                    orientation: 'vertical'
+                                    spacing: dp(20)
+                                    size_hint_y: None
+                                    height: self.minimum_height
+
+                                    MDBoxLayout:
+                                        orientation: 'horizontal'
+                                        spacing: dp(12)
+                                        size_hint_y: None
+                                        height: dp(56)
+
+                                        MDIcon:
+                                            icon: "account"
+                                            theme_text_color: "Custom"
+                                            text_color: (20/255, 203/255, 186/255, 1 )
+                                            size_hint_x: None
+                                            width: dp(28)
+
+                                        MDTextField:
+                                            id: nombre_field
+                                            text: root.usuario_actual.get("nombre", "") if root.usuario_actual else ""
+                                            hint_text: "Nombre"
+                                            mode: "fill"
+                                            helper_text: "Nombre completo"
+                                            required: True
+                                            line_color_focus: 20/255, 203/255, 186/255, 1 
+                                            font_size: "16sp"
+
+                                    MDBoxLayout:
+                                        orientation: 'horizontal'
+                                        spacing: dp(12)
+                                        size_hint_y: None
+                                        height: dp(56)
+
+                                        MDIcon:
+                                            icon: "email"
+                                            theme_text_color: "Custom"
+                                            text_color: (20/255, 203/255, 186/255, 1 )
+                                            size_hint_x: None
+                                            width: dp(28)
+
+                                        MDTextField:
+                                            id: email_field
+                                            text: root.usuario_actual.get("email", "") if root.usuario_actual else ""
+                                            hint_text: "Correo"
+                                            mode: "fill"
+                                            helper_text: "Correo electrónico"
+                                            required: True
+                                            line_color_focus: 20/255, 203/255, 186/255, 1 
+                                            font_size: "16sp"
+
+                                    MDBoxLayout:
+                                        orientation: 'horizontal'
+                                        spacing: dp(12)
+                                        size_hint_y: None
+                                        height: dp(56)
+
+                                        MDIcon:
+                                            icon: "phone"
+                                            theme_text_color: "Custom"
+                                            text_color: (20/255, 203/255, 186/255, 1 )
+                                            size_hint_x: None
+                                            width: dp(28)
+
+                                        MDTextField:
+                                            id: telefono_field
+                                            text: root.usuario_actual.get("telefono", "") if root.usuario_actual else ""
+                                            hint_text: "Teléfono"
+                                            mode: "fill"
+                                            helper_text: "Teléfono de contacto"
+                                            required: True
+                                            line_color_focus: 20/255, 203/255, 186/255, 1 
+                                            font_size: "16sp"
+
+                                    MDBoxLayout:
+                                        orientation: 'horizontal'
+                                        spacing: dp(12)
+                                        size_hint_y: None
+                                        height: dp(56)
+
+                                        MDIcon:
+                                            icon: "home"
+                                            theme_text_color: "Custom"
+                                            text_color: (20/255, 203/255, 186/255, 1 )
+                                            size_hint_x: None
+                                            width: dp(28)
+
+                                        MDTextField:
+                                            id: direccion_field
+                                            text: root.usuario_actual.get("direccion", "") if root.usuario_actual else ""
+                                            hint_text: "Dirección"
+                                            mode: "fill"
+                                            helper_text: "Dirección de residencia"
+                                            multiline: True
+                                            required: True
+                                            line_color_focus: 20/255, 203/255, 186/255, 1 
+                                            font_size: "16sp"
+
+                                    MDBoxLayout:
+                                        orientation: 'horizontal'
+                                        spacing: dp(12)
+                                        size_hint_y: None
+                                        height: dp(56)
+
+                                        MDIcon:
+                                            icon: "medical-bag"
+                                            theme_text_color: "Custom"
+                                            text_color: (20/255, 203/255, 186/255, 1 )
+                                            size_hint_x: None
+                                            width: dp(28)
+
+                                        MDTextField:
+                                            id: condiciones_field
+                                            text: root.usuario_actual.get("condiciones_medicas", "") if root.usuario_actual else ""
+                                            hint_text: "Condiciones médicas"
+                                            mode: "fill"
+                                            multiline: True
+                                            helper_text: "Condiciones médicas (alergias, asma, lesiones...)"
+                                            line_color_focus: 20/255, 203/255, 186/255, 1 
+                                            font_size: "16sp"
+
+                                    MDBoxLayout:
+                                        orientation: 'horizontal'
+                                        spacing: dp(12)
+                                        size_hint_y: None
+                                        height: dp(56)
+
+                                        MDIcon:
+                                            icon: "calendar"
+                                            theme_text_color: "Custom"
+                                            text_color: (20/255, 203/255, 186/255, 1 )
+                                            size_hint_x: None
+                                            width: dp(28)
+
+                                        MDTextField:
+                                            id: fecha_registro_field
+                                            text: root.usuario_actual.get("fecha_registro", "") if root.usuario_actual else ""
+                                            hint_text: "Fecha de Registro"
+                                            mode: "fill"
+                                            readonly: True
+                                            disabled: True
+                                            text_color: 20/255, 203/255, 186/255, 1 
+                                            line_color_focus: 20/255, 203/255, 186/255, 1 
+                                            font_size: "16sp"
+
+                                    MDBoxLayout:
+                                        orientation: 'horizontal'
+                                        spacing: dp(12)
+                                        size_hint_y: None
+                                        height: dp(56)
+
+                                        MDIcon:
+                                            icon: "star"
+                                            theme_text_color: "Custom"
+                                            text_color: (20/255, 203/255, 186/255, 1 )
+                                            size_hint_x: None
+                                            width: dp(28)
+
+                                        MDTextField:
+                                            id: gustos_field
+                                            hint_text: "Gustos"
+                                            readonly: True
+
+                    Widget:
+                        size_hint_y: None
+                        height: dp(8)
+
+                    MDRaisedButton:
+                        text: "Guardar Cambios"
+                        md_bg_color: 20/255, 203/255, 186/255, 1 
+                        text_color: 1, 1, 1, 1
+                        pos_hint: {"center_x": 0.5}
+                        size_hint_x: 0.8
+                        size_hint_y: None
+                        height: dp(56)
+                        font_size: "16sp"
+                        on_release: app.cliente_home_screen.validar_campos_perfil()
+                        
+                    Widget:
+                        size_hint_y: None
+                        height: dp(8)

@@ -1,0 +1,31 @@
+#:kivy 2.1.0
+<ComentariosScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        md_bg_color: 234/255, 221/255, 208/255, 1
+
+        MDTopAppBar:
+            title: "Comentarios"
+            left_action_items: [["arrow-left", lambda x: app.volver_atras()]]
+
+        MDLabel:
+            id: titulo_actividad
+            text: ""
+            halign: "center"
+            theme_text_color: "Primary"
+            font_style: "H5"
+            padding: [dp(10), dp(10)]
+            size_hint_y: None
+            height: dp(50)
+            md_bg_color: 234/255, 221/255, 208/255, 1
+
+        ScrollView:
+            md_bg_color: 234/255, 221/255, 208/255, 1
+
+            MDBoxLayout:
+                id: comentarios_list
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: dp(10)
+                spacing: dp(10)

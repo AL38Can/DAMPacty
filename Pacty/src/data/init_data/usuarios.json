@@ -1,0 +1,57 @@
+
+{
+    "": {
+        "password": "",
+        "perfil": "cliente",
+        "nombre": "Ana García",
+        "telefono": "+34 600 123 456",
+        "direccion": "Calle Río Verde 23, Granada",
+        "fecha_registro": "2024-11-02",
+        "condiciones_medicas": "Alergia al polen, asma leve"
+    },
+    "e": {
+        "password": "",
+        "perfil": "empleado",
+        "nombre": "Ana García",
+        "telefono": "+34 600 123 456",
+        "direccion": "Calle Río Verde 23, Granada",
+        "fecha_registro": "2024-11-02",
+        "condiciones_medicas": "Alergia al polen, asma leve"
+    },
+    "cliente@example.com": {
+        "password": "1234",
+        "perfil": "cliente",
+        "nombre": "Ana García",
+        "telefono": "+34 600 123 456",
+        "direccion": "Calle Río Verde 23, Granada",
+        "fecha_registro": "2024-11-02",
+        "condiciones_medicas": "Alergia al polen, asma leve"
+    },
+    "empleado@example.com": {
+        "password": "1234",
+        "perfil": "empleado",
+        "nombre": "Carlos Ruiz",
+        "telefono": "+34 611 654 321",
+        "direccion": "Avenida del Trabajo 18, Sevilla",
+        "fecha_registro": "2023-05-10",
+        "condiciones_medicas": ""
+    },
+    "admin@example.com": {
+        "password": "1234",
+        "perfil": "admin",
+        "nombre": "Laura Martín",
+        "telefono": "+34 622 987 654",
+        "direccion": "Plaza Mayor 1, Madrid",
+        "fecha_registro": "2022-01-15",
+        "condiciones_medicas": ""
+    },
+    "a": {
+        "password": "",
+        "perfil": "admin",
+        "nombre": "Laura Martín",
+        "telefono": "+34 622 987 654",
+        "direccion": "Plaza Mayor 1, Madrid",
+        "fecha_registro": "2022-01-15",
+        "condiciones_medicas": ""
+    }
+}

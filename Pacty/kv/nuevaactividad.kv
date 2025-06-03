@@ -1,0 +1,223 @@
+#:kivy 2.1.0
+
+<NuevaActividadScreen>:
+    ScrollView:
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: "20dp"
+            spacing: "20dp"
+            md_bg_color: 234/255, 221/255, 208/255, 1
+            size_hint_y: None
+            height: self.minimum_height
+
+            # Título con botón de IA
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "10dp"
+                pos_hint: {"center_x": 0.5}
+
+                MDLabel:
+                    text: "Nueva Actividad"
+                    halign: "center"
+                    font_style: "H4"
+                    color: (121/255, 85/255, 72/255, 1)
+                    size_hint_y: None
+                    height: self.texture_size[1] + dp(10)
+                    size_hint_x: 1
+
+                MDIconButton:
+                    icon: "magic-staff"
+                    icon_size: "28sp"
+                    pos_hint: {"center_y": .5}
+                    md_bg_color: 0,0,0,0
+                    theme_text_color: "Custom"
+                    text_color: 0.2,0.6,0.8,1
+                    tooltip_text: "Rellenar todo con IA"
+                    on_release: root.crear_actividad_ia()
+
+            MDSeparator:
+                height: dp(2)
+                size_hint_x: None
+                width: dp(200)
+                pos_hint: {"center_x": 0.5}
+                color: 20/255, 203/255, 186/255, 1
+
+            MDLabel:
+                text: "Nombre:"
+                size_hint_y: None
+                height: dp(20)
+
+            MDTextField:
+                id: nombre_field
+                hint_text: "Nombre"
+                mode: "rectangle"
+                size_hint_y: None
+                height: dp(50)
+                fill_color: (1, 1, 1, 1) if self.focus else (234/255, 221/255, 208/255, 1)
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: dp(20)
+
+                MDLabel:
+                    text: "Descripción"
+                    size_hint_y: None
+                    height: dp(20)
+
+                MDIconButton:
+                    icon: "magic-staff"
+                    icon_size: "18sp"
+                    pos_hint: {"center_y": .5}
+                    md_bg_color: 0,0,0,0
+                    theme_text_color: "Custom"
+                    text_color: 0.4,0.2,0.8,1
+                    padding: [0, 0, 0, 0]
+                    tooltip_text: "Descripción aleatoria"
+                    on_release: root.rellenar_descripcion_ia()
+
+            MDTextField:
+                id: descripcion_field
+                hint_text: "Descripción"
+                multiline: True
+                mode: "rectangle"
+                size_hint_y: None
+                height: dp(200)
+                min_height: dp(200)
+                max_height: dp(300)
+                fill_color: (1, 1, 1, 1) if self.focus else (234/255, 221/255, 208/255, 1)
+                text: ""
+
+            MDLabel:
+                text: "Categoría:"
+                size_hint_y: None
+                height: dp(20)
+                
+
+            MDRaisedButton:
+                id: categoria_btn
+                text: "Categoría"
+                md_bg_color: 20/255, 203/255, 186/255, 1
+                on_release: root.open_categoria_menu()
+                pos_hint: {"center_x": 0.5}
+
+            MDLabel:
+                text: "Fecha:"
+                size_hint_y: None
+                height: dp(20)
+
+            MDTextField:
+                id: fecha_field
+                hint_text: "Seleccionar fecha"
+                mode: "rectangle"
+                readonly: True
+                icon_left: "calendar"
+                text: root.fecha_text if hasattr(root, 'fecha_text') else ""
+                on_touch_down:
+                    if self.collide_point(*args[1].pos): root.open_date_picker()
+
+            MDLabel:
+                text: "Hora:"
+                size_hint_y: None
+                height: dp(20)
+
+            MDTextField:
+                id: hora_field
+                hint_text: "Seleccionar hora"
+                mode: "rectangle"
+                readonly: True
+                icon_left: "clock-outline"
+                text: root.hora_text if hasattr(root, 'hora_text') else ""
+                on_touch_down:
+                    if self.collide_point(*args[1].pos): root.open_time_picker()
+
+            MDLabel:
+                text: "Lugar:"
+                size_hint_y: None
+                height: dp(20)
+
+            MDTextField:
+                id: lugar_field
+                hint_text: "Lugar"
+                mode: "rectangle"
+                icon_left: "map-marker"
+                fill_color: (1, 1, 1, 1) if self.focus else (234/255, 221/255, 208/255, 1)
+
+            MDLabel:
+                text: "Plazas:"
+                size_hint_y: None
+                height: dp(20)
+                md_bg_color: 234/255, 221/255, 208/255, 1
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: dp(50)
+                width: dp(300)
+                pos_hint: {"center_x": 0.5}
+
+                Widget:  # Espacio a la izquierda para centrar
+                    size_hint_x: 1
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_x: None
+                    width: dp(220)
+                    spacing: dp(10)
+                    md_bg_color: 234/255, 221/255, 208/255, 1
+
+                    MDRaisedButton:
+                        text: "-"
+                        md_bg_color: 20/255, 203/255, 186/255, 1
+                        text_color: 1, 1, 1, 1
+                        on_release: root.decrementar_plazas()
+                        size_hint_x: None
+                        width: dp(50)
+                    MDTextField:
+                        id: plazas_field
+                        hint_text: "Plazas"
+                        mode: "rectangle"
+                        input_filter: "int"
+                        text: str(root.plazas) if hasattr(root, 'plazas') else "1"
+                        halign: "center"
+                        size_hint_x: None
+                        width: dp(80)
+                        readonly: True
+                    MDRaisedButton:
+                        text: "+"
+                        md_bg_color: 20/255, 203/255, 186/255, 1
+                        text_color: 1, 1, 1, 1
+                        on_release: root.incrementar_plazas()
+                        size_hint_x: None
+                        width: dp(50)
+
+                Widget:  # Espacio a la derecha para centrar
+                    size_hint_x: 1
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: dp(40)
+                spacing: dp(10)
+
+                MDLabel:
+                    text: "Activo"
+                    size_hint_x: None
+                    width: dp(80)
+                    valign: "center"
+
+                MDSwitch:
+                    id: activo_switch
+                    active: True
+
+            MDRaisedButton:
+                text: "Guardar Actividad"
+                md_bg_color: 0.7, 0.7, 0.7, 1
+                pos_hint: {"center_x": 0.5}
+                on_release: root.guardar_actividad()
+
+            MDRaisedButton:
+                text: "Cancelar"
+                on_release: app.cancelar_edicion_usuario()

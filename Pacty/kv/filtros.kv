@@ -1,0 +1,98 @@
+#:kivy 2.1.0
+<FiltrosScreen>:
+    name: "filter_screen"
+    md_bg_color: [0.95, 0.95, 0.95, 1]
+    MDBoxLayout:
+        orientation: "vertical"
+        size_hint: 1, None
+        height: self.minimum_height
+        pos_hint: {"top": 1}
+        padding: "20dp"
+        spacing: "16dp"
+
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: "48dp"
+            spacing: "8dp"
+
+            MDLabel:
+                text: "Filtrar actividades"
+                font_style: "H5"
+                halign: "left"
+                size_hint_x: 0.8
+
+            MDIconButton:
+                icon: "close"
+                user_font_size: "24dp"
+                pos_hint: {"center_y": 0.5}
+                on_release: root.cerrar()
+
+
+        MDTextField:
+            id: nombre_filter
+            hint_text: "Buscar actividad..."
+            mode: "round"
+            icon_right: "magnify"
+            size_hint_x: 1
+
+        # Filtro Categoría
+        MDDropDownItem:
+            id: categoria_filter
+            text: "Seleccionar Categoría"
+            on_release: root._init_menu_categorias()
+
+        # Filtros Fecha
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: "8dp"
+            size_hint_y: None
+            height: "56dp"
+
+            MDTextField:
+                id: fecha_desde_filter
+                hint_text: "Desde (YYYY-MM-DD)"
+                readonly: True
+                on_focus: if self.focus: root.abrir_date_picker('desde')
+
+            MDTextField:
+                id: fecha_hasta_filter
+                hint_text: "Hasta (YYYY-MM-DD)"
+                readonly: True
+                on_focus: if self.focus: root.abrir_date_picker('hasta')
+
+        # chips
+        ScrollView:
+            size_hint_y: None
+            height: "90dp"
+            bar_width: "6dp"
+            do_scroll_x: False
+            md_bg_color: [0.95, 0.95, 0.95, 1]
+
+            GridLayout:
+                id: categorias_chip_box
+                cols: 3
+                spacing: "5dp"
+                size_hint_y: None
+                height: self.minimum_height
+                padding: "5dp"
+                pos_hint: {"center_x": 0.5}
+
+        # Botones
+        MDBoxLayout:
+            size_hint_y: None
+            height: "56dp"
+            spacing: "16dp"
+            padding: ["0dp", "16dp", "0dp", "0dp"]
+
+            MDRaisedButton:
+                text: "APLICAR FILTROS"
+                size_hint_x: 0.7
+                on_release: root.aplicar_filtros()
+                md_bg_color: [20/255, 203/255, 186/255, 1]
+
+            MDIconButton:
+                icon: "eraser"
+                theme_text_color: "Custom"
+                text_color: [0.6, 0.6, 0.6, 1]
+                on_release: root.limpiar_filtros()

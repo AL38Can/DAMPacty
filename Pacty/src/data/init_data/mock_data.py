@@ -1,0 +1,302 @@
+ACTIVIDADES =[
+    {
+        "id": 1,
+        "nombre": "Ruta en kayak",
+        "descripcion": "Explora el río en kayak.",
+        "fecha": "2025-06-15",
+        "hora": "10:00",
+        "lugar": "Río Verde",
+        "plazas": 10,
+        "inscritos": [],
+        "categoria": "Aventura",
+        "activo": False,
+        "comentarios": [
+            {
+                "usuario": "Juan",
+                "comentario": "Una experiencia increíble, muy relajante.",
+                "puntuacion": 5
+            },
+            {
+                "usuario": "Maria",
+                "comentario": "¡Me encantó! La actividad estuvo genial.",
+                "puntuacion": 4
+            },
+            {
+                "usuario": "Usuario Actual",
+                "puntuacion": 3,
+                "comentario": "Prueba"
+            },
+            {
+                "usuario": "Usuario Actual",
+                "puntuacion": 2,
+                "comentario": "2"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Senderismo",
+        "descripcion": "Ruta guiada por la montaña.",
+        "fecha": "2025-06-18",
+        "hora": "09:00",
+        "lugar": "Montaña Azul",
+        "plazas": 5,
+        "inscritos": [],
+        "categoria": "Naturaleza",
+        "activo": True,
+        "comentarios": [
+            {
+                "usuario": "Carlos",
+                "comentario": "Un recorrido muy bonito, pero algo cansado.",
+                "puntuacion": 3
+            },
+            {
+                "usuario": "Ana",
+                "comentario": "La guía fue excelente, una gran experiencia.",
+                "puntuacion": 5
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Masaje",
+        "descripcion": "Relájate con un masaje en la naturaleza.",
+        "fecha": "2025-05-01",
+        "hora": "09:00",
+        "lugar": "Montaña Azul",
+        "plazas": 1,
+        "inscritos": [],
+        "categoria": "Bienestar",
+        "activo": True,
+        "comentarios": [
+            {
+                "usuario": "Lucía",
+                "comentario": "El masaje fue muy relajante, totalmente recomendable.",
+                "puntuacion": 5
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Yoga en la playa",
+        "descripcion": "Sesión de yoga al amanecer en la playa.",
+        "fecha": "2025-06-14",
+        "hora": "06:00",
+        "lugar": "Playa del Sol",
+        "plazas": 15,
+        "inscritos": [],
+        "categoria": "Bienestar",
+        "activo": False,
+        "comentarios": [
+            {
+                "usuario": "Pedro",
+                "comentario": "Un ambiente único, muy relajante.",
+                "puntuacion": 5
+            },
+            {
+                "usuario": "Laura",
+                "comentario": "El amanecer fue espectacular, pero la clase un poco difícil.",
+                "puntuacion": 3
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Bicicross",
+        "descripcion": "Desafía la ruta en bicicleta de montaña.",
+        "fecha": "2025-06-20",
+        "hora": "08:30",
+        "lugar": "Colina Verde",
+        "plazas": 8,
+        "inscritos": [],
+        "categoria": "Deportes",
+        "activo": True,
+        "comentarios": [
+            {
+                "usuario": "Oscar",
+                "comentario": "Un reto divertido, pero algo peligroso.",
+                "puntuacion": 4
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "Clases de surf",
+        "descripcion": "Lecciones de surf para principiantes y avanzados.",
+        "fecha": "2025-06-15",
+        "hora": "11:30",
+        "lugar": "Playa del Sol",
+        "plazas": 12,
+        "inscritos": [],
+        "categoria": "Deportes",
+        "activo": True,
+        "comentarios": [
+            {
+                "usuario": "Fernando",
+                "comentario": "Me caí varias veces, pero me divertí mucho.",
+                "puntuacion": 4
+            },
+            {
+                "usuario": "Isabel",
+                "comentario": "Excelente profesor, muy didáctico.",
+                "puntuacion": 5
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "Paseo en globo",
+        "descripcion": "Vuela sobre los valles en un globo aerostático.",
+        "fecha": "2025-06-17",
+        "hora": "07:00",
+        "lugar": "Valles del Sol",
+        "plazas": 4,
+        "inscritos": [],
+        "categoria": "Aventura",
+        "activo": True,
+        "comentarios": [
+            {
+                "usuario": "Sandra",
+                "comentario": "Las vistas eran impresionantes, lo recomiendo mucho.",
+                "puntuacion": 5
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "nombre": "Esquí acuático",
+        "descripcion": "Disfruta de un día sobre el agua en esquís acuáticos.",
+        "fecha": "2025-06-16",
+        "hora": "13:00",
+        "lugar": "Lago Azul",
+        "plazas": 6,
+        "inscritos": [],
+        "categoria": "Deportes",
+        "activo": True,
+        "comentarios": [
+            {
+                "usuario": "Javier",
+                "comentario": "Una actividad muy divertida, pero un poco difícil al principio.",
+                "puntuacion": 4
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "nombre": "Parapente",
+        "descripcion": "Vuela sobre las montañas con un instructor de parapente.",
+        "fecha": "2025-06-14",
+        "hora": "15:00",
+        "lugar": "Cima de la Montaña",
+        "plazas": 3,
+        "inscritos": [],
+        "categoria": "Aventura",
+        "activo": True,
+        "comentarios": [
+            {
+                "usuario": "Sofia",
+                "comentario": "Una experiencia única, me sentí segura todo el tiempo.",
+                "puntuacion": 5
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "nombre": "Ciclismo de montaña",
+        "descripcion": "Recorre las rutas de montaña en bicicleta.",
+        "fecha": "2025-06-17",
+        "hora": "10:00",
+        "lugar": "Sendero Rojo",
+        "plazas": 10,
+        "inscritos": [],
+        "categoria": "Deportes",
+        "activo": True,
+        "comentarios": [
+            {
+                "usuario": "Raúl",
+                "comentario": "Me encantó el recorrido, pero podría ser más desafiante.",
+                "puntuacion": 4
+            },
+            {
+                "usuario": "Paco",
+                "comentario": "No está mal"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "nombre": "Karaoke",
+        "descripcion": "Disfruta de una noche de karaoke con amigos.",
+        "fecha": "2025-06-22",
+        "hora": "20:00",
+        "lugar": "Bar La Risa",
+        "plazas": 20,
+        "inscritos": [],
+        "categoria": "Social",
+        "activo": False,
+        "comentarios": []
+    },
+    {
+        "id": 12,
+        "nombre": "Cata de vinos",
+        "descripcion": "Descubre los mejores vinos de la región.",
+        "fecha": "2025-06-25",
+        "hora": "18:00",
+        "lugar": "Bodega del Valle",
+        "plazas": 15,
+        "inscritos": [],
+        "categoria": "Gastronomía",
+        "activo": False,
+        "comentarios": [
+            {
+                "usuario": "Antonio",
+                "comentario": "Una experiencia muy educativa, aprendí mucho sobre vinos.  Carlos ha sido un gran guía y nos ha hecho sentir como en casa. Gracias por todo el cariño y la dedicación. Un abrazo al equipo de la bodega.",
+                "puntuacion": 5
+            },
+            {
+                "usuario": "Clara",
+                "comentario": "Los vinos eran excelentes, pero la cata fue un poco larga.",
+                "puntuacion": 4
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "nombre": "Taller de cocina",
+        "descripcion": "Aprende a cocinar platos típicos de la región.",
+        "fecha": "2025-06-28",
+        "hora": "17:00",
+        "lugar": "Escuela de Cocina",
+        "plazas": 10,
+        "inscritos": [],
+        "categoria": "Gastronomía",
+        "activo": True,
+        "comentarios": []
+    },
+    {
+        "id": 14,
+        "nombre": "Prueba",
+        "descripcion": "faf.afá",
+        "fecha": "2025-05-24",
+        "hora": "01:00",
+        "lugar": "",
+        "plazas": 1,
+        "inscritos": [],
+        "categoria": "Social",
+        "activo": False,
+        "comentarios": []
+    },
+    {
+        "id": 15,
+        "nombre": "Charla Motivacional",
+        "descripcion": "Diversión asegurada para todos los asistentes.",
+        "fecha": "2025-11-25",
+        "hora": "11:45",
+        "lugar": "Sala de Conferencias",
+        "plazas": 40,
+        "inscritos": [],
+        "categoria": "Deportes",
+        "activo": True,
+        "comentarios": []
+    }
+]

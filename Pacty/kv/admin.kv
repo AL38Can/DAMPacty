@@ -1,0 +1,95 @@
+#:kivy 2.1.0
+<AdminHomeScreen>:
+    MDBottomNavigation:
+        panel_color: 1, 1, 0.9, 1
+
+        MDBottomNavigationItem:
+            name: "crear"
+            text: "Nueva Actividad"
+            icon: "plus-box"
+            MDLabel:
+                text: "Crear Actividades"
+                halign: "center"
+
+        MDBottomNavigationItem:
+            name: "usuarios"
+            text: "Usuarios"
+            icon: "account-group"
+            MDLabel:
+                text: "Gestión de Usuarios"
+                halign: "center"
+
+        MDBottomNavigationItem:
+            name: "empresa"
+            text: "Empresa"
+            icon: "domain"
+            EmpresaPanel:
+
+<EmpresaPanel>:
+    orientation: "vertical"
+    padding: "40dp"
+    spacing: "10dp"
+    md_bg_color: 234/255, 221/255, 208/255, 1
+
+    ScrollView:
+        do_scroll_x: False
+
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: "10dp"
+
+            MDLabel:
+                text: "Datos de la Empresa"
+                halign: "center"
+                font_style: "H5"
+                color: (0.0235, 0.4235, 0.3647, 1)
+                size_hint_y: None
+                height: "40dp"
+
+            MDTextField:
+                id: nombre
+                hint_text: "Nombre"
+                text: root.fields.get("nombre").text if root.fields.get("nombre") else ""
+                icon_right: "domain"
+                size_hint_x: 1
+                pos_hint: {"center_x": 0.5}
+
+            MDTextField:
+                id: direccion
+                hint_text: "Dirección"
+                text: root.fields.get("direccion").text if root.fields.get("direccion") else ""
+                icon_right: "map-marker"
+                size_hint_x: 1
+                pos_hint: {"center_x": 0.5}
+
+            MDTextField:
+                id: telefono
+                hint_text: "Teléfono"
+                text: root.fields.get("telefono").text if root.fields.get("telefono") else ""
+                icon_right: "phone"
+                size_hint_x: 1
+                pos_hint: {"center_x": 0.5}
+
+            MDTextField:
+                id: email
+                hint_text: "Email"
+                text: root.fields.get("email").text if root.fields.get("email") else ""
+                icon_right: "email"
+                size_hint_x: 1
+                pos_hint: {"center_x": 0.5}
+
+            MDTextField:
+                id: cif
+                hint_text: "CIF"
+                text: root.fields.get("cif").text if root.fields.get("cif") else ""
+                icon_right: "card-account-details"
+                size_hint_x: 1
+                pos_hint: {"center_x": 0.5}
+
+            MDRaisedButton:
+                text: "Guardar"
+                md_bg_color: 20/255, 203/255, 186/255, 1
+                pos_hint: {"center_x": 0.5}
+                on_release: root.save_data()

@@ -1,0 +1,103 @@
+@startuml
+
+
+' Ocultar detalles no esenciales, excepto los métodos que estamos añadiendo
+hide empty members
+
+
+
+class Usuarios {
+    + email: TEXT <<PK>>
+    + password: TEXT
+    + perfil: TEXT
+    + nombre: TEXT
+    + telefono: TEXT
+    + direccion: TEXT
+    + fecha_registro: TEXT
+    + condiciones_medicas: TEXT
+    + gustos: TEXT
+    --
+    + get(email: str): Usuarios
+    + getAll(): list<Usuarios>
+    + add(data: dict): bool
+    + update(email: str, data: dict): bool
+    + delete(email: str): bool
+}
+
+class Actividades {
+    + id: INTEGER <<PK>> <<AutoIncrement>>
+    + nombre: TEXT
+    + descripcion: TEXT
+    + fecha: TEXT
+    + hora: TEXT
+    + lugar: TEXT
+    + plazas: INTEGER
+    + categoria: TEXT
+    + activo: BOOLEAN
+    --
+    + get(id: int): Actividades
+    + getAll(): list<Actividades>
+    + add(data: dict): bool
+    + update(id: int, data: dict): bool
+    + delete(id: int): bool
+}
+
+class Comentarios {
+    + id: INTEGER <<PK>> <<AutoIncrement>>
+    + actividad_id: INTEGER <<FK>>
+    + usuario: TEXT <<FK>>
+    + comentario: TEXT
+    + puntuacion: INTEGER
+    + fecha: TEXT
+    --
+    + get(id: int): Comentarios
+    + getAll(): list<Comentarios>
+    + add(data: dict): bool
+    + update(id: int, data: dict): bool
+    + delete(id: int): bool
+}
+
+class Inscripciones {
+    + actividad_id: INTEGER <<PK>> <<FK>>
+    + usuario_email: TEXT <<PK>> <<FK>>
+    --
+    + get(actividad_id: int, usuario_email: str): Inscripciones
+    + getAll(): list<Inscripciones>
+    + add(actividad_id: int, usuario_email: str): bool
+    + delete(actividad_id: int, usuario_email: str): bool
+}
+
+class Empresa {
+    + nombre: TEXT
+    + direccion: TEXT
+    + telefono: TEXT
+    + email: TEXT
+    + cif: TEXT
+    --
+    + get(): Empresa ' Solo hay una entrada
+    + update(data: dict): bool
+}
+
+class Categorias {
+    + nombre: TEXT <<PK>>
+    + icono: TEXT
+    + color: TEXT
+    --
+    + get(nombre: str): Categorias
+    + getAll(): list<Categorias>
+    + add(data: dict): bool
+    + update(nombre: str, data: dict): bool
+    + delete(nombre: str): bool
+}
+
+
+
+' Relaciones entre tablas (basadas en Foreign Keys)
+Actividades "1" -- "0..*" Comentarios : contiene
+Actividades "1" -- "0..*" Inscripciones : tiene
+Usuarios "1" -- "0..*" Comentarios : hace
+Usuarios "1" -- "0..*" Inscripciones : registra
+
+Actividades "0..*" -- "1" Categorias : pertenece a
+
+@enduml

@@ -1,0 +1,86 @@
+#:kivy 2.1.0
+<EmpleadoHomeScreen>:
+    MDBottomNavigation:
+        panel_color: 1, 1, 0.9, 1
+
+        
+        MDBottomNavigationItem:
+            name: "actividades"
+            text: "Actividades"
+            icon: "cloud-upload"
+            
+            BoxLayout:
+                orientation: 'vertical'
+                padding: "20dp"
+                spacing: "15dp"
+
+                MDBoxLayout:
+                    orientation: "horizontal"
+                    size_hint_y: None
+                    height: dp(40)
+                    spacing: dp(10)
+                    pos_hint: {"center_x": 0.5}
+
+                    Widget:
+                        size_hint_x: 0.25
+
+              
+                    MDLabel:
+                        text: "Actividades"
+                        font_style: "H5"
+                        halign: "center"
+                        color: (0.659, 0.620, 0.576, 1)
+                        size_hint_x: 0.5
+                        size_hint_y: None
+                        height: self.texture_size[1] + dp(10)
+
+                    Widget:
+                        size_hint_x: 0.25
+
+                MDSeparator:
+                    height: dp(1)
+                    size_hint_x: None
+                    width: dp(200)
+                    pos_hint: {"center_x": 0.5}
+                    color: app.theme_cls.primary_color
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(10)
+
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    size_hint_y: None
+                    height: "48dp"
+                    padding: "10dp"
+                    spacing: "10dp"
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    Widget:
+                        size_hint_x: 0.25
+
+                    MDRaisedButton:
+                        id: estado_button
+                        text: "Todas"
+                        size_hint_x: None
+                        width: "120dp"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        on_release: app.root.get_screen('empleado_home').ids.actividades.children[0].children[0].estado_menu.open()
+
+                    Widget:
+                        size_hint_x: 0.25
+
+   
+
+        MDBottomNavigationItem:
+            name: "crear"
+            text: "Nueva Actividad"
+            icon: "plus-box"
+            NuevaActividadScreen:
+        
+        MDBottomNavigationItem:
+            name: "usuarios"
+            text: "Usuarios"
+            icon: "account-group"
+            UsuariosGestionScreen:
+
